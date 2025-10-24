@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutDir>$(SolutionDir)bin\$(Configuration)</OutDir>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <LangVersion>7.0</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>x64</Platforms>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <GenerateDependencyFile>true</GenerateDependencyFile>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Configurations>Debug;Release</Configurations>
+    <AssemblyVersion>0.0.1</AssemblyVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="logo.png" />
+    <None Remove="pgsql_clearIFC.sql" />
+    <None Remove="pythonProc.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pgsql_ApplyIfcFormula.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pgsql_clearIFC.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pythonProc.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CADLibControls">
+      <HintPath>..\..\..\..\..\Program Files\CSoft\Model Studio CS\3.1\MIA\bin\CADLibControls.dll</HintPath>
+    </Reference>
+    <Reference Include="CADLibKernel">
+      <HintPath>..\..\..\..\..\Program Files\CSoft\Model Studio CS\3.1\MIA\bin\CADLibKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="CdeLib">
+      <HintPath>..\..\..\..\..\Program Files\CSoft\Model Studio CS\3.1\MIA\bin\CdeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="FLib">
+      <HintPath>..\..\..\..\..\Program Files\CSoft\Model Studio CS\3.1\MIA\bin\FLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NData">
+      <HintPath>..\..\..\..\..\Program Files\CSoft\Model Studio CS\3.1\MIA\bin\NData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
